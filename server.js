@@ -19,4 +19,5 @@ app.use("/todos", todoRouter)
 app.use("/", (req, res) => {
   res.send("Todo microservice")
 })
-app.listen(process.env.PORT || 3001, () => console.log('server started'))
+const port = process.env.PORT || 3001
+app.listen(port, () => console.log('server started on port', port))
