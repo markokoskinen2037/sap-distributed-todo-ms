@@ -4,11 +4,12 @@ const Todo = require("../models/todo")
 
 router.get('/', async (req, res) => {
 
-    const { user } = req.decoded
+
 
 
 
     try {
+        const { user } = req.decoded
         const todos = await Todo.find({ createdBy: user._id })
         res.json(todos)
     } catch (err) {

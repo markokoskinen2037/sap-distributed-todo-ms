@@ -31,6 +31,7 @@ const decodeToken = (req, res, next) => {
             throw new Error(err);
         }
     }
+    next()
 
 }
 
