@@ -31,6 +31,10 @@ const decodeToken = (req, res, next) => {
     }
 }
 
+app.use("/", (req, res) => {
+    res.send("Todo microservice")
+})
+
 app.use((req, res, next) => {
     decodeToken(req, res, next)
 })
@@ -39,8 +43,6 @@ app.use((req, res, next) => {
 app.use("/todos", todoRouter)
 
 
-app.use("/", (req, res) => {
-    res.send("Todo microservice")
-})
+
 const port = process.env.PORT || 3001
 app.listen(port, () => console.log('server started on port', port))
