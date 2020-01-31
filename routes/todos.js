@@ -3,11 +3,6 @@ const router = express.Router()
 const Todo = require("../models/todo")
 
 router.get('/', async (req, res) => {
-
-
-
-
-
     try {
         const { user } = req.decoded
         const todos = await Todo.find({ createdBy: user._id })
