@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const morgan = require("morgan")
 const mongoose = require('mongoose')
 const todoRouter = require("./routes/todos")
 
@@ -10,6 +11,7 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('connected to database'))
 
+app.use(morgan("dev"))
 app.use(express.json())
 
 // ROUTES:
